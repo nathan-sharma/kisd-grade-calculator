@@ -8,7 +8,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>KISD Sharma Grade Calculator</h1>
+      <h1 class="text-red-500">KISD Sharma Grade Calculator</h1>
       {!calculatorType && ( // Conditionally render buttons
         <div>
           <button onClick={() => setCalculatorType('semester')}>Semester Exam Calculator</button>
