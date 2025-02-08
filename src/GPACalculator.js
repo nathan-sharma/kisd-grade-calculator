@@ -57,26 +57,32 @@ function GPACalculator() {
 
   return (
     <div>
-      <h2>GPA Calculator</h2>
-      <input
-        type="text"
-        placeholder="Academic Grades (Letter(Number),... or 'none')"
-        value={academicGrades}
-        onChange={e => setAcademicGrades(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="KAP/AP Grades (Letter(Number),... or 'none')"
-        value={kapApGrades}
-        onChange={e => setKapApGrades(e.target.value)}
-      />
-      <button onClick={calculateGPA}>Calculate GPA</button>
+      <div className="bg-white p-8 shadow-md">
+        <h2 className="text-2xl font-bold mb-4">GPA Calculator</h2>
+        <input
+          type="text"
+          placeholder="ACA courses (A(# of semesters), B(# of semesters)... or 'none')"
+          value={academicGrades}
+          onChange={e => setAcademicGrades(e.target.value)}
+          className="border border-gray-300 rounded px-3 py-2 mb-2 w-full" 
+        />
+        <input
+          type="text"
+          placeholder="KAP & AP courses (A(# of semesters), B(# of semesters)... or 'none')"
+          value={kapApGrades}
+          onChange={e => setKapApGrades(e.target.value)}
+          className="border border-gray-300 rounded px-3 py-2 mb-4 w-full"  
+        />
+        <button onClick={calculateGPA} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"> {/* Styling button */}
+          Calculate GPA
+        </button>
 
-      {gpa !== null && (
-        <div>
-          <p>Your GPA: {gpa}</p>
-        </div>
-      )}
+        {gpa !== null && (
+          <div className="mt-4">
+            <p className="text-lg">Your GPA: {gpa}</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

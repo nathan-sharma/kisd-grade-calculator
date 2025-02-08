@@ -17,18 +17,63 @@ function SemesterCalculator() {
   };
 
   return (
-    <div>
-      <h2>Semester Exam Calculator</h2>
-      <input type="number" placeholder="Six Weeks 1" value={sw1} onChange={e => setSw1(e.target.value)} />
-      <input type="number" placeholder="Six Weeks 2" value={sw2} onChange={e => setSw2(e.target.value)} />
-      <input type="number" placeholder="Six Weeks 3" value={sw3} onChange={e => setSw3(e.target.value)} />
-      <button onClick={calculate}>Calculate</button>
+    <div className="bg-white p-8 shadow-md">
+      <h2 className="text-2xl font-bold mb-4">Semester Exam Calculator</h2>
+      <input
+        type="number"
+        placeholder="1st SW"
+        value={sw1}
+        onChange={e => setSw1(e.target.value)}
+        className="border border-gray-300 rounded px-3 py-2 mb-2 w-full"
+      />
+      <input
+        type="number"
+        placeholder="2nd SW"
+        value={sw2}
+        onChange={e => setSw2(e.target.value)}
+        className="border border-gray-300 rounded px-3 py-2 mb-2 w-full"
+      />
+      <input
+        type="number"
+        placeholder="3rd SW"
+        value={sw3}
+        onChange={e => setSw3(e.target.value)}
+        className="border border-gray-300 rounded px-3 py-2 mb-2 w-full"
+      />
+      <button
+        className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+        onClick={calculate}
+      >
+        Calculate
+      </button>
 
-      {results && ( // Display results if calculated
-        <div>
-          {/* ... (Display results similar to your Python code) */}
-          <p>To get an A: {results.get_an_a > 100 ? "Impossible" : results.get_an_a <= 0 ? "Guaranteed" : results.get_an_a}</p>
-          {/* ... (Rest of your results display logic) */}
+      {results && (
+        <div className="mt-4"> {/* Added margin-top for spacing */}
+          <p>
+            To get an A:{" "}
+            {results.get_an_a > 100
+              ? "Impossible"
+              : results.get_an_a <= 0
+              ? "Guaranteed"
+              : results.get_an_a.toFixed(2)} {/* Format to 2 decimal places */}
+          </p>
+          <p>
+            To get a B:{" "}
+            {results.get_a_b > 100
+              ? "Impossible"
+              : results.get_a_b <= 0
+              ? "Guaranteed"
+              : results.get_a_b.toFixed(2)}
+          </p>
+          <p>
+            To pass:{" "}
+            {results.to_pass > 100
+              ? "Impossible"
+              : results.to_pass <= 0
+              ? "Guaranteed"
+              : results.to_pass.toFixed(2)}
+          </p>
+          <p>Final Grade (assuming 15% weight for exams): {results.skibidi_toilet.toFixed(2)}</p>
         </div>
       )}
     </div>

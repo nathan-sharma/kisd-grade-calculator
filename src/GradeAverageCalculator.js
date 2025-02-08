@@ -27,12 +27,15 @@ function GradeAverageCalculator() {
   };
 
   return (
-    <div>
-      <h2>Grade Average Calculator</h2>
-      <input type="text" placeholder="Major Grades (comma-separated)" value={majors} onChange={e => setMajors(e.target.value)} />
-      <input type="text" placeholder="Minor Grades (comma-separated)" value={minors} onChange={e => setMinors(e.target.value)} />
-      <input type="text" placeholder="Other Grades (comma-separated)" value={others} onChange={e => setOthers(e.target.value)} />
-      <button onClick={calculateAverage}>Calculate</button>
+    <div  className="bg-white p-8 shadow-md">
+      <h2 className="text-2xl font-bold mb-4">Grade Average Calculator</h2>
+      <input type="text" placeholder="Major Grades (comma-separated)" value={majors} onChange={e => setMajors(e.target.value)} 
+      className="border border-gray-300 rounded px-3 py-2 mb-2 w-full" />
+      <input type="text" placeholder="Minor Grades (comma-separated)" value={minors} onChange={e => setMinors(e.target.value)} 
+      className="border border-gray-300 rounded px-3 py-2 mb-2 w-full" />
+      <input type="text" placeholder="Other Grades (comma-separated)" value={others} onChange={e => setOthers(e.target.value)} 
+      className="border border-gray-300 rounded px-3 py-2 mb-2 w-full"/>
+      <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"onClick={calculateAverage}>Calculate</button>
 
       {results && (
         <div>
