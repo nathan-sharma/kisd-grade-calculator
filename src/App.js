@@ -9,28 +9,28 @@ function App() {
   return (
     <div className="App flex flex-col items-center h-screen pt-8 justify-center bg-blue-50">
       <h1 className="text-red-500 text-3xl text-center font-bold font-mono py-4">Katy ISD Grade Calculator</h1>
-      <p className="text-blue-500 font-extrabold mt-[-10px]">By Nathan Sharma</p>
+      <p className="font-extrabold mt-[-10px]">By Nathan Sharma</p>
 
       <div className="mt-3 border p-8 rounded shadow-md"> {/* Border and padding */}
         {!calculatorType && (
           <div className="flex flex-col space-y-4"> {/* Removed pt-2 here */}
             <button
-              className="bg-red-300 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-full"
+              className="bg-red-500 hover:bg-red-900 text-white font-bold py-2 px-4 rounded w-full"
               onClick={() => setCalculatorType('semester')}
             >
               Semester Exam Calculator
             </button>
             <button
-              className="bg-red-300 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-full"
+              className="bg-red-500 hover:bg-red-900 text-white font-bold py-2 px-4 rounded w-full"
               onClick={() => setCalculatorType('gpa')}
             >
               GPA Calculator
             </button>
             <button
-              className="bg-red-300 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-full"
+              className="bg-red-500 hover:bg-red-900 text-white font-bold py-2 px-4 rounded w-full"
               onClick={() => setCalculatorType('grades')}
             >
-              Grade Average Calculator
+              Class Average Calculator
             </button>
           </div>
         )}

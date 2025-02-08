@@ -19,6 +19,7 @@ function SemesterCalculator() {
   return (
     <div className="bg-white p-8 shadow-md">
       <h2 className="text-2xl font-bold mb-4">Semester Exam Calculator</h2>
+      <p className = "mt-[-10px]"> Assumes that the final is worth 15% of your average.</p>
       <input
         type="number"
         placeholder="1st SW"
@@ -49,31 +50,32 @@ function SemesterCalculator() {
 
       {results && (
         <div className="mt-4"> {/* Added margin-top for spacing */}
-          <p>
-            To get an A:{" "}
+          <p className ="my-1">
+            Minimum needed to get an A:{" "}
             {results.get_an_a > 100
-              ? "Impossible"
+              ? "❌ Impossible"
               : results.get_an_a <= 0
-              ? "Guaranteed"
-              : results.get_an_a.toFixed(2)} {/* Format to 2 decimal places */}
+              ? "✅ Guaranteed"
+              : results.get_an_a.toFixed(2)}
+               {/* Format to 2 decimal places */}
           </p>
-          <p>
-            To get a B:{" "}
+          <p className = "my-1">
+            Minimum needed get a B:{" "}
             {results.get_a_b > 100
-              ? "Impossible"
+              ? "❌ Impossible"
               : results.get_a_b <= 0
-              ? "Guaranteed"
+              ? "✅ Guaranteed"
               : results.get_a_b.toFixed(2)}
           </p>
-          <p>
-            To pass:{" "}
+          <p className = "my-1">
+            Minimum needed to pass:{" "}
             {results.to_pass > 100
-              ? "Impossible"
+              ? "❌ Impossible"
               : results.to_pass <= 0
-              ? "Guaranteed"
+              ? "✅ Guaranteed"
               : results.to_pass.toFixed(2)}
           </p>
-          <p>Final Grade (assuming 15% weight for exams): {results.skibidi_toilet.toFixed(2)}</p>
+          <p>Best case scenario: {results.skibidi_toilet.toFixed(2)}</p>
         </div>
       )}
     </div>
