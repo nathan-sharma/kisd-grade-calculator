@@ -62,7 +62,7 @@ function App() {
         <div className="mt-3 mb-4 border border-gray-300 p-8 rounded shadow-md w-1/2 mx-auto max-h-[70vh] overflow-y-auto relative">
           <h2 className = "font-bold underline">How to use the calculators</h2>
           <p className ="mt-3">Semester Calculator: Input your six weeks averages for any class into the SW fields. </p>
-          <p className = "mt-3">GPA Calculator: Entries should be in the form of Letter[(Number of semesters)] separated by commas. In other words, you're inputting the number of semesters where your average was the letter outside the parentheses. If you didn't take any 5.0 or 4.0 courses, put 'none' in the corresponding placeholder. Make sure you put parentheses around the number of semesters.</p>
+          <p className = "mt-3">GPA Calculator: Entries should be in the form of Letter(Number of semesters) separated by commas. In other words, you're inputting the number of semesters where your average was the letter outside the parentheses. If you didn't take any 5.0 or 4.0 courses, put 'none' in the corresponding placeholder.</p>
           <p className = "mt-3">Class Average Calculator: Input your grades separated by commas or their averages into each category. </p>
         </div>
       )}
