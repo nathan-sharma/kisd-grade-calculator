@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/grade-cal-website/static/css/main.a2bf275f.css",
-    "main.js": "/grade-cal-website/static/js/main.3eb7b00b.js",
+    "main.js": "/grade-cal-website/static/js/main.fb3bd8ac.js",
     "static/js/156.cf285a94.chunk.js": "/grade-cal-website/static/js/156.cf285a94.chunk.js",
     "index.html": "/grade-cal-website/index.html",
     "main.a2bf275f.css.map": "/grade-cal-website/static/css/main.a2bf275f.css.map",
-    "main.3eb7b00b.js.map": "/grade-cal-website/static/js/main.3eb7b00b.js.map",
+    "main.fb3bd8ac.js.map": "/grade-cal-website/static/js/main.fb3bd8ac.js.map",
     "156.cf285a94.chunk.js.map": "/grade-cal-website/static/js/156.cf285a94.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a2bf275f.css",
-    "static/js/main.3eb7b00b.js"
+    "static/js/main.fb3bd8ac.js"
   ]
 }
