@@ -54,7 +54,7 @@ function App() {
              ${!calculatorType ? 'w-full' : ''}`} 
   onClick={() => setShowHowToUse(!showHowToUse)}
 >
-  How to Use
+  How to use
 </button>
 
       </div> {/* Close the main div */}
