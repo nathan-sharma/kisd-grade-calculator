@@ -27,7 +27,7 @@ function GradeAverageCalculator() {
   };
 
   return (
-    <div  className="bg-white p-8 shadow-md">
+    <div  className="bg-white p-8">
       <h2 className="text-2xl font-bold mb-4">Class Average Calculator</h2>
       <input type="text" placeholder="Major Grades (comma-separated or category average)" value={majors} onChange={e => setMajors(e.target.value)} 
       className="border border-gray-300 rounded px-3 py-2 mb-2 w-full" />
