@@ -32,7 +32,7 @@ function GPACalculator() {
                 return {points: 0, count: 0} // Stop calculation on invalid number
             }
           } else {
-            alert("Invalid grade format for: " + entry)
+            alert("Invalid grade format for " + entry + ". Make sure you have parentheses around the number of semesters. Example: A(1)")
             return {points: 0, count: 0} // Stop calculation on invalid format
           }
         }
