@@ -73,7 +73,7 @@ function GPACalculator() {
           onChange={e => setKapApGrades(e.target.value)}
           className="border border-gray-300 rounded px-3 py-2 mb-4 w-full"  
         />
-        <button onClick={calculateGPA} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"> {/* Styling button */}
+        <button onClick={calculateGPA} className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"> {/* Styling button */}
           Calculate GPA
         </button>
 

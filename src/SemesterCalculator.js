@@ -42,10 +42,10 @@ function SemesterCalculator() {
         className="border border-gray-300 rounded px-3 py-2 mb-2 w-full"
       />
       <button
-        className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+        className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
         onClick={calculate}
       >
-        Calculate
+        Calculate exam scores
       </button>
 
       {results && (

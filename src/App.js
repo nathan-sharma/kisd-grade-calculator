@@ -5,29 +5,31 @@ import GPACalculator from './GPACalculator';
 
 function App() {
   const [calculatorType, setCalculatorType] = useState(null);
+  const [showHowToUse, setShowHowToUse] = useState(false);
 
   return (
-    <div className="App flex flex-col items-center h-screen pt-8 justify-center bg-blue-50">
-      <h1 className="text-red-500 text-3xl text-center font-bold font-mono py-4">Katy ISD Grade Calculator</h1>
+    <div className="App flex flex-col items-center h-screen pt-8 justify-center bg-gray-200">
+      <h1 className="text-blue-500 text-3xl text-center font-bold font-mono py-4">Katy ISD Grade Calculator</h1>
       <p className="font-extrabold mt-[-10px]">By Nathan Sharma</p>
 
-      <div className="mt-3 border p-8 rounded shadow-md"> {/* Border and padding */}
+      <div className="mt-3 border border-gray-300 p-8 rounded shadow-md">
+
         {!calculatorType && (
-          <div className="flex flex-col space-y-4"> {/* Removed pt-2 here */}
+          <div className="flex flex-col space-y-4">
             <button
-              className="bg-red-500 hover:bg-red-900 text-white font-bold py-2 px-4 rounded w-full"
+              className="bg-blue-600 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded w-full"
               onClick={() => setCalculatorType('semester')}
             >
               Semester Exam Calculator
             </button>
             <button
-              className="bg-red-500 hover:bg-red-900 text-white font-bold py-2 px-4 rounded w-full"
+              className="bg-blue-600 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded w-full"
               onClick={() => setCalculatorType('gpa')}
             >
               GPA Calculator
             </button>
             <button
-              className="bg-red-500 hover:bg-red-900 text-white font-bold py-2 px-4 rounded w-full"
+              className="bg-blue-600 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded w-full"
               onClick={() => setCalculatorType('grades')}
             >
               Class Average Calculator
@@ -41,13 +43,30 @@ function App() {
 
         {calculatorType && (
           <button
-            className="rounded mt-4 border border-black bg-black text-white"
+            className="rounded mt-4 border border-gray-300 bg-gray-600 hover:bg-gray-900 text-white font-bold py-2 px-4 mr-4" 
             onClick={() => setCalculatorType(null)}
           >
             Back to Menu
           </button>
         )}
-      </div> {/* Close the border div */}
+        <button
+  className={` rounded mt-4 border border-gray-300 bg-gray-600 hover:bg-gray-900 text-white font-bold py-2 px-4 ml-auto
+             ${!calculatorType ? 'w-full' : ''}`} 
+  onClick={() => setShowHowToUse(!showHowToUse)}
+>
+  How to Use
+</button>
+
+      </div> {/* Close the main div */}
+
+      {showHowToUse && (
+        <div className="mt-3 mb-4 border border-gray-300 p-8 rounded shadow-md w-1/2 mx-auto max-h-[70vh] overflow-y-auto relative">
+          <h2 className = "font-bold underline">How to use the calculators</h2>
+          <p className ="mt-3">Semester Calculator: Input your six weeks averages for any class into the SW fields. </p>
+          <p className = "mt-3">GPA Calculator: Entries should be in the form of Letter(Number of semesters) separated by commas. In other words, you're inputting the number of semesters where your average was the letter outside the parentheses. If you didn't take any 5.0 or 4.0 courses, put 'none' in the corresponding placeholder.</p>
+          <p className = "mt-3">Class Average Calculator: Input your grades separated by commas or their averages into each category. </p>
+        </div>
+      )}
     </div>
   );
 }
