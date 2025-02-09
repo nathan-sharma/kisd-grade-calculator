@@ -28,11 +28,11 @@ function GPACalculator() {
                   }
                 }
             } else {
-                alert("Invalid number of courses for " + letter + "Make sure the number of semesters has parentheses around it.")
+                alert("Invalid number of courses for " + letter)
                 return {points: 0, count: 0} // Stop calculation on invalid number
             }
           } else {
-            alert("Invalid grade format for: " + entry)
+            alert("Invalid grade format for: " + entry + "Make sure the number of semesters has parentheses around it.")
             return {points: 0, count: 0} // Stop calculation on invalid format
           }
         }
