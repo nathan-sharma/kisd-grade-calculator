@@ -28,7 +28,7 @@ function GPACalculator() {
                   }
                 }
             } else {
-                alert("Invalid number of courses for " + letter)
+                alert("Invalid number of courses for " + letter + "Make sure the number of semesters has parentheses around it.")
                 return {points: 0, count: 0} // Stop calculation on invalid number
             }
           } else {
