@@ -36,7 +36,6 @@ function App() {
             </button>
           </div>
         )}
-
         {calculatorType === 'semester' && <SemesterCalculator />}
         {calculatorType === 'grades' && <GradeAverageCalculator />}
         {calculatorType === 'gpa' && <GPACalculator />}
