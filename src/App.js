@@ -8,9 +8,9 @@ function App() {
   const [showHowToUse, setShowHowToUse] = useState(false);
 
   return (
-    <div className="App flex flex-col items-center h-screen pt-8 justify-center bg-gray-200">
+    <div className="App flex flex-col items-center h-screen justify-center bg-gray-200">
       <h1 className="text-blue-500 text-3xl text-center font-bold font-sans py-4">Katy ISD Grade Calculator</h1>
-      <p className="font-extrabold mt-[-10px]">By Nathan Sharma</p>
+      <p className="font-extrabold mt-[-10px]"> By Nathan Sharma</p>
 
       <div className="mt-3 border border-gray-300 p-8 rounded shadow-md">
 
