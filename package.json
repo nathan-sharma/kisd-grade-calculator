@@ -36,6 +36,6 @@
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "gh-pages": "^5.0.0"
-  },
- "homepage": "https://nathan-sharma.github.io/grade-cal-website/"
+  }, 
+ "homepage": "https://www.katygradecalc.com/" 
 }
