@@ -42,14 +42,14 @@ function App() {
 
         {calculatorType && (
           <button
-            className="rounded mt-4 border border-gray-300 bg-gray-600 hover:bg-gray-900 text-white font-bold py-2 px-4 mr-4" 
+            className="rounded mt-4 bg-purple-800 hover:bg-purple-900 text-white font-bold py-2 px-4 mr-4" 
             onClick={() => setCalculatorType(null)}
           >
             Back to Menu
           </button>
         )}
         <button
-  className={` rounded mt-4 border border-gray-300 bg-gray-600 hover:bg-gray-900 text-white font-bold py-2 px-4 ml-auto
+  className={` rounded mt-4 bg-purple-800 hover:bg-purple-900 text-white font-bold py-2 px-4 ml-auto
              ${!calculatorType ? 'w-full' : ''}`} 
   onClick={() => setShowHowToUse(!showHowToUse)}
 >
