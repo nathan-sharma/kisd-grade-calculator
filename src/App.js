@@ -62,7 +62,7 @@ function App() {
         <div className="mt-3 mb-4 border border-gray-300 p-8 rounded shadow-md w-1/2 mx-auto max-h-[70vh] overflow-y-auto relative">
           <h2 className = "font-bold underline">How to use the calculators</h2>
           <p className ="mt-3">Semester Calculator: Input your six weeks averages for any class into the SW fields. </p>
-          <p className = "mt-3">GPA Calculator: Enter your grades in the following format: Letter grade(Number of semesters), separated by commas. For each letter grade, enter the number of semesters you earned that grade. For example, if you earned an A for 2 semesters, enter A(2). If you haven't taken any 5.0 or 4.0 courses, you may leave the corresponding placeholder blank. If you took high school credit courses in middle school, include those grades and semesters in your calculation.</p>
+          <p className = "mt-3">GPA Calculator: Enter your grades in the following format: Letter grade(Number of semesters), separated by commas. For each letter grade, enter the number of semesters you earned that grade. For example, if you earned an A for 2 semesters, enter A(2). Put 'none' if you haven't taken any 5.0 courses. If you took high school credit courses in middle school, include those grades and semesters in your calculation.</p>
           <p className = "mt-3">Class Average Calculator: Input your grades separated by commas or their averages into each category. You can also use this as a what if calculator to see what you need to get the average you're aiming for. </p>
         </div>
       )}
