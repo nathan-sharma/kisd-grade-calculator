@@ -75,7 +75,7 @@ function SemesterCalculator() {
               ? "✅ Guaranteed"
               : results.to_pass.toFixed(2)}
           </p>
-          <p>Best case scenario: {results.skibidi_toilet.toFixed(2)}</p>
+          <p>Best case scenario: your average is a(n) {results.skibidi_toilet.toFixed(2)}</p>
         </div>
       )}
     </div>
