@@ -72,7 +72,7 @@ function GPACalculator() {
       {weightedGpa !== null && (
         <div className="mt-4">
           <p className="text-lg">Your weighted KISD GPA: {weightedGpa}</p>
-          <p className="text-lg">Your 4.0 scaled GPA: {weightedGpa * 0.8}</p>
+          <p className="text-lg">Your 4.0 scaled GPA: {(weightedGpa * 0.8).toFixed(4)}</p>
         </div>
       )}
     </div>
