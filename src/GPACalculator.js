@@ -3,37 +3,38 @@ import React, { useState } from 'react';
 function GPACalculator() {
   const [academicGrades, setAcademicGrades] = useState('');
   const [kapApGrades, setKapApGrades] = useState('');
-  const [gpa, setGpa] = useState(null);
+  const [weightedGpa, setWeightedGpa] = useState(null);
+  const [unweightedGpa, setUnweightedGpa] = useState(null);
 
   const calculateGPA = () => {
     const calculatePoints = (gradesString, letterValues) => {
       let points = 0;
       let count = 0;
 
-      if (gradesString.toLowerCase() !== 'none' && gradesString.trim() !== "") { // Handle "none" and empty input
+      if (gradesString.toLowerCase() !== 'none' && gradesString.trim() !== "") {
         const gradeEntries = gradesString.split(',');
         for (const entry of gradeEntries) {
           const parts = entry.trim().split('(');
           if (parts.length === 2) {
             const letter = parts[0].trim().toUpperCase();
-            const num = parseInt(parts[1].replace(')', '')); // Remove ')' and parse
+            const num = parseInt(parts[1].replace(')', ''));
             if (!isNaN(num)) {
-                for (let i = 0; i < num; i++) {
-                  if (letterValues[letter]) {
-                    points += letterValues[letter];
-                    count++;
-                  } else {
-                    alert("Invalid grade letter: " + letter)
-                    return {points: 0, count: 0} // Stop calculation on invalid letter
-                  }
+              for (let i = 0; i < num; i++) {
+                if (letterValues[letter]) {
+                  points += letterValues[letter];
+                  count++;
+                } else {
+                  alert("Invalid grade letter: " + letter);
+                  return { points: 0, count: 0 };
                 }
+              }
             } else {
-                alert("Invalid number of courses for " + letter)
-                return {points: 0, count: 0} // Stop calculation on invalid number
+              alert("Invalid number of courses for " + letter);
+              return { points: 0, count: 0 };
             }
           } else {
-            alert("Invalid grade format for " + entry + ". Make sure you have parentheses around the number of semesters and your entries are comma separated. Example: A(1), B(1), C(1), D(1)")
-            return {points: 0, count: 0} // Stop calculation on invalid format
+            alert("Invalid grade format for " + entry + ". Click the how to use button for more info.");
+            return { points: 0, count: 0 };
           }
         }
       }
@@ -46,13 +47,17 @@ function GPACalculator() {
 
     const acaPointsCount = calculatePoints(academicGrades, acaLetters);
     const kapPointsCount = calculatePoints(kapApGrades, kapApLetters);
+    const unweightedKapPointsCount = calculatePoints(kapApGrades, acaLetters);
 
     const totalPoints = acaPointsCount.points + kapPointsCount.points;
+    const totalUnweightedPoints = acaPointsCount.points + unweightedKapPointsCount.points;
     const totalCourses = acaPointsCount.count + kapPointsCount.count;
 
-    const calculatedGpa = totalCourses > 0 ? totalPoints / totalCourses : 0;
-    setGpa(calculatedGpa.toFixed(4)); // Round to 4 decimal places
+    const calculatedWeightedGpa = totalCourses > 0 ? totalPoints / totalCourses : 0;
+    const calculatedUnweightedGpa = totalCourses > 0 ? totalUnweightedPoints / totalCourses : 0;
 
+    setWeightedGpa(calculatedWeightedGpa.toFixed(4));
+    setUnweightedGpa(calculatedUnweightedGpa.toFixed(4));
   };
 
   return (
@@ -61,25 +66,26 @@ function GPACalculator() {
         <h2 className="text-2xl font-bold mb-4">GPA Calculator</h2>
         <input
           type="text"
-          placeholder="ACA courses (A(# of semesters), B(# of semesters)... or 'none')"
+          placeholder="ACA (4.0) courses"
           value={academicGrades}
           onChange={e => setAcademicGrades(e.target.value)}
-          className="border border-gray-300 rounded px-3 py-2 mb-2 w-full" 
+          className="border border-gray-300 rounded px-3 py-2 mb-2 w-full"
         />
         <input
           type="text"
-          placeholder="KAP & AP courses (A(# of semesters), B(# of semesters)... or 'none')"
+          placeholder="KAP & AP (5.0) courses"
           value={kapApGrades}
           onChange={e => setKapApGrades(e.target.value)}
-          className="border border-gray-300 rounded px-3 py-2 mb-4 w-full"  
+          className="border border-gray-300 rounded px-3 py-2 mb-4 w-full"
         />
-        <button onClick={calculateGPA} className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"> {/* Styling button */}
+        <button onClick={calculateGPA} className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
           Calculate GPA
         </button>
 
-        {gpa !== null && (
+        {(weightedGpa !== null && unweightedGpa !== null) && ( // Correct conditional rendering
           <div className="mt-4">
-            <p className="text-lg">Your GPA: {gpa}</p>
+            <p className="text-lg">Your weighted KISD GPA: {weightedGpa}</p>
+            <p className="text-lg">Your unweighted college GPA: {unweightedGpa}</p>
           </div>
         )}
       </div>
