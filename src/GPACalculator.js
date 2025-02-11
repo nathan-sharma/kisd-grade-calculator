@@ -33,7 +33,7 @@ function GPACalculator() {
               return { points: 0, count: 0 };
             }
           } else {
-            alert("Invalid grade format for " + entry + ". Click the how to use button for more info.");
+            alert("Invalid grade format for " + entry + ". See instructions for more info.");
             return { points: 0, count: 0 };
           }
         }
