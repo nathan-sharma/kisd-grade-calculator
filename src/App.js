@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App flex flex-col items-center h-screen justify-center bg-gray-200">
       <h1 className="text-blue-500 text-3xl text-center font-bold font-sans py-4">Katy ISD Grade Calculator</h1>
-      <p className="font-extrabold text-blue-500 mt-[-10px]"> By Nathan Sharma</p>
+      <p className="font-extrabold mt-[-10px]"> By Nathan Sharma</p>
 
       <div className="mt-3 border border-gray-300 p-8 rounded shadow-md">
 
@@ -42,14 +42,14 @@ function App() {
 
         {calculatorType && (
           <button
-            className="rounded mt-4 bg-purple-800 hover:bg-purple-900 text-white font-bold py-2 px-4 mr-4" 
+            className="rounded mt-4 bg-gray-600 hover:bg-gray-900 text-white font-bold py-2 px-4 mr-4" 
             onClick={() => setCalculatorType(null)}
           >
             Back to Menu
           </button>
         )}
         <button
-  className={` rounded mt-4 bg-purple-800 hover:bg-purple-900 text-white font-bold py-2 px-4 ml-auto
+  className={` rounded mt-4 bg-gray-600 hover:bg-gray-900 text-white font-bold py-2 px-4 ml-auto
              ${!calculatorType ? 'w-full' : ''}`} 
   onClick={() => setShowHowToUse(!showHowToUse)}
 >
