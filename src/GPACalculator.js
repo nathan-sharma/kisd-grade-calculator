@@ -18,7 +18,7 @@ function GPACalculator() {
           const letter = parts[0].trim().toUpperCase();
           const num = parseInt(parts[1].replace(')', ''));
 
-          if (isNaN(num) || !letterValues[letter]) {
+          if (isNaN(num)) {
             alert(`Invalid input: ${entry}. See how to use for more info.`);
             hasError = true;
             break;
