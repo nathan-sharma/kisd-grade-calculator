@@ -5,40 +5,48 @@ function GPACalculator() {
   const [kapApGrades, setKapApGrades] = useState('');
   const [weightedGpa, setWeightedGpa] = useState(null);
 
-  const calculateGPA = () => {
-    const calculatePoints = (gradesString, letterValues) => {
-      let points = 0;
-      let count = 0;
+  const calculatePoints = (gradesString, letterValues) => {
+    let points = 0;
+    let count = 0;
+    let hasError = false;
 
-      if (gradesString.toLowerCase() !== 'none' && gradesString.trim() !== "") {
-        gradesString.split(',').forEach(entry => {
-          const parts = entry.trim().split('(');
-          if (parts.length === 2) {
-            const letter = parts[0].trim().toUpperCase();
-            const num = parseInt(parts[1].replace(')', ''));
-            if (!isNaN(num) && letterValues[letter]) {
-              points += letterValues[letter] * num;
-              count += num;
-            } else {
-              alert(`Invalid input: ${entry}. See how to use for more info.`);
-              return { points: 0, count: 0 }; // Stop calculation on error
-            }
+    if (gradesString.toLowerCase() !== 'none' && gradesString.trim() !== "") {
+      const entries = gradesString.split(',');
+      for (const entry of entries) {
+        const parts = entry.trim().split('(');
+        if (parts.length === 2) {
+          const letter = parts[0].trim().toUpperCase();
+          const num = parseInt(parts[1].replace(')', ''));
+
+          if (isNaN(num) || !letterValues[letter]) {
+            alert(`Invalid input: ${entry}. See how to use for more info.`);
+            hasError = true;
+            break;
           } else {
-            alert(`Invalid format: ${entry}. See how to use for more info.`);
-            return { points: 0, count: 0 }; // Stop calculation on error
+            points += letterValues[letter] * num;
+            count += num;
           }
-        });
+        } else {
+          alert(`Invalid format: ${entry}. See how to use for more info.`);
+          hasError = true;
+          break;
+        }
       }
-      return { points, count };
-    };
+    }
+    return { points, count, hasError };
+  };
 
-    const acaLetters = { A: 4, B: 3, C: 2, D: 1 ,F: 0 };
-    const kapApLetters = { A: 5, B: 4, C: 3, D: 2 , F: 0 };
+  const calculateGPA = () => {
+    const acaLetters = { A: 4, B: 3, C: 2, D: 1, F: 0 };
+    const kapApLetters = { A: 5, B: 4, C: 3, D: 2, F: 0 };
 
     const acaPointsCount = calculatePoints(academicGrades, acaLetters);
     const kapPointsCount = calculatePoints(kapApGrades === 'none' ? "" : kapApGrades, kapApLetters);
 
-    if (acaPointsCount.points === 0 && kapPointsCount.points === 0) return; //Handle invalid input
+    if (acaPointsCount.hasError || kapPointsCount.hasError) {
+      setWeightedGpa(null);
+      return;
+    }
 
     const totalPoints = acaPointsCount.points + kapPointsCount.points;
     const totalCourses = acaPointsCount.count + kapPointsCount.count;
